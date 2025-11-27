@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  pgjoelo:
+    image: ghcr.io/joelo15/joelrepomakefile:latest
+    
+    deploy:
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.pgjoelo.entrypoints=http"
+        - "traefik.http.routers.pgjoelo.rule=Host(`pgjoelo.byronrm.com`)"
+        - "traefik.http.middlewares.pgjoelo-https-redirect.redirectscheme.scheme=https"
+        - "traefik.http.routers.pgjoelo.middlewares=pgjoelo-https-redirect"
+        - "traefik.http.routers.pgjoelo-secure.entrypoints=https"
+        - "traefik.http.routers.pgjoelo-secure.rule=Host(`pgjoelo.byronrm.com`)"
+        - "traefik.http.routers.pgjoelo-secure.tls=true"
+        - "traefik.http.routers.pgjoelo-secure.tls.certresolver=http"
+        - "traefik.http.routers.pgjoelo-secure.service=pgjoelo"
+        - "traefik.http.services.pgjoelo.loadbalancer.server.port=1003"
+        - "traefik.docker.network=traefik-public"
+    networks:
+      - traefik-public
+
+networks:
+  traefik-public:
+    external: true
+
