@@ -1,8 +1,8 @@
-APP_NAME=pgjoelo
+APP_NAME=guerra
 STACK_FILE=stack.yml
 
 build:
-        docker build -t $(APP_NAME):latest .
+        docker build -t $(APP_NAME):1.0.5 .
 
 deploy:
         docker stack deploy --with-registry-auth -c $(STACK_FILE) $(APP_NAME)
