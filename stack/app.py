@@ -59,7 +59,7 @@ HTML_PAGE = """
 </head>
 <body>
     <div class="card">
-        <h1>🚀 Flask en Contenedor Joel Molina</h1>
+        <h1>Examen</h1>
         <p>Aplicación funcionando correctamente con diseño visual moderno.</p>
         <a href="/api" class="btn">Ver API JSON</a>
     </div>
