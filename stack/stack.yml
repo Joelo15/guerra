@@ -1,23 +1,23 @@
 version: "3.8"
 
 services:
-  pgjoelo:
+  guerra:
     image: ghcr.io/joelo15/guerra:1.0.5
     
     deploy:
       replicas: 1
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.pgjoelo.entrypoints=http"
-        - "traefik.http.routers.pgjoelo.rule=Host(`pgjoelo.byronrm.com`)"
-        - "traefik.http.middlewares.pgjoelo-https-redirect.redirectscheme.scheme=https"
-        - "traefik.http.routers.pgjoelo.middlewares=pgjoelo-https-redirect"
-        - "traefik.http.routers.pgjoelo-secure.entrypoints=https"
-        - "traefik.http.routers.pgjoelo-secure.rule=Host(`pgjoelo.byronrm.com`)"
-        - "traefik.http.routers.pgjoelo-secure.tls=true"
-        - "traefik.http.routers.pgjoelo-secure.tls.certresolver=http"
-        - "traefik.http.routers.pgjoelo-secure.service=pgjoelo"
-        - "traefik.http.services.pgjoelo.loadbalancer.server.port=1003"
+        - "traefik.http.routers.guerra.entrypoints=http"
+        - "traefik.http.routers.guerra.rule=Host(`guerra.byronrm.com`)"
+        - "traefik.http.middlewares.guerra-https-redirect.redirectscheme.scheme=https"
+        - "traefik.http.routers.guerra.middlewares=guerra-https-redirect"
+        - "traefik.http.routers.guerra-secure.entrypoints=https"
+        - "traefik.http.routers.guerra-secure.rule=Host(`guerra.byronrm.com`)"
+        - "traefik.http.routers.guerra-secure.tls=true"
+        - "traefik.http.routers.guerra-secure.tls.certresolver=http"
+        - "traefik.http.routers.guerra-secure.service=guerra"
+        - "traefik.http.services.guerra.loadbalancer.server.port=1003"
         - "traefik.docker.network=traefik-public"
     networks:
       - traefik-public
