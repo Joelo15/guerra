@@ -48,7 +48,7 @@ jobs:
         context: ./stack
         file: ./stack/Dockerfile
         push: true
-        tags: ghcr.io/joelo15/molina:latest
+        tags: ghcr.io/joelo15/guerra:1.0.5
         
     - name: 🧾 Mostrar variables básicas (solo locales, no secretos)
       run: |
