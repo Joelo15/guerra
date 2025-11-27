@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   pgjoelo:
-    image: ghcr.io/joelo15/joelrepomakefile:latest
+    image: ghcr.io/joelo15/guerra:1.0.5
     
     deploy:
       replicas: 1
